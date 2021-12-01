@@ -1,0 +1,114 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: cv-c77d99c57
+  namespace: default
+  uid: 9ce74cf6-4387-49c2-8ed4-1ac48cba807e
+  resourceVersion: '10984'
+  generation: 1
+  creationTimestamp: '2021-12-01T19:50:54Z'
+  labels:
+    k8s-app: cv
+    pod-template-hash: c77d99c57
+  annotations:
+    deployment.kubernetes.io/desired-replicas: '1'
+    deployment.kubernetes.io/max-replicas: '2'
+    deployment.kubernetes.io/revision: '1'
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: cv
+      uid: 400ca7c5-dd65-4950-81c3-7927192976b2
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-12-01T19:50:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deployment.kubernetes.io/desired-replicas: {}
+            f:deployment.kubernetes.io/max-replicas: {}
+            f:deployment.kubernetes.io/revision: {}
+          f:labels:
+            .: {}
+            f:k8s-app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"400ca7c5-dd65-4950-81c3-7927192976b2"}: {}
+        f:spec:
+          f:replicas: {}
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:k8s-app: {}
+                f:pod-template-hash: {}
+              f:name: {}
+            f:spec:
+              f:containers:
+                k:{"name":"cv"}:
+                  .: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:securityContext:
+                    .: {}
+                    f:privileged: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2021-12-01T19:50:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:fullyLabeledReplicas: {}
+          f:observedGeneration: {}
+          f:replicas: {}
+      subresource: status
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: cv
+      pod-template-hash: c77d99c57
+  template:
+    metadata:
+      name: cv
+      creationTimestamp: null
+      labels:
+        k8s-app: cv
+        pod-template-hash: c77d99c57
+    spec:
+      containers:
+        - name: cv
+          image: krutika12/resumemaker:latest
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+          securityContext:
+            privileged: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  replicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
