@@ -1,0 +1,57 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cv
+  namespace: default
+  uid: 9f946418-d2af-47bb-9fae-bb89ab9597e3
+  resourceVersion: '11710'
+  creationTimestamp: '2021-12-01T19:50:54Z'
+  labels:
+    k8s-app: cv
+  managedFields:
+    - manager: dashboard
+      operation: Update
+      apiVersion: v1
+      time: '2021-12-01T19:50:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:k8s-app: {}
+        f:spec:
+          f:allocateLoadBalancerNodePorts: {}
+          f:externalTrafficPolicy: {}
+          f:internalTrafficPolicy: {}
+          f:ports:
+            .: {}
+            k:{"port":8000,"protocol":"TCP"}:
+              .: {}
+              f:name: {}
+              f:port: {}
+              f:protocol: {}
+              f:targetPort: {}
+          f:selector: {}
+          f:sessionAffinity: {}
+          f:type: {}
+spec:
+  ports:
+    - name: tcp-8000-8000-xzkg5
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+      nodePort: 31820
+  selector:
+    k8s-app: cv
+  clusterIP: 10.100.47.245
+  clusterIPs:
+    - 10.100.47.245
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+status:
+  loadBalancer: {}
