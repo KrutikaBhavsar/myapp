@@ -1,0 +1,201 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: cv-c77d99c57-kqdpx
+  generateName: cv-c77d99c57-
+  namespace: default
+  uid: b1a2d59e-1c4b-4891-ba4d-c492037e0924
+  resourceVersion: '11517'
+  creationTimestamp: '2021-12-01T19:50:54Z'
+  labels:
+    k8s-app: cv
+    pod-template-hash: c77d99c57
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: cv-c77d99c57
+      uid: 9ce74cf6-4387-49c2-8ed4-1ac48cba807e
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2021-12-01T19:50:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:k8s-app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"9ce74cf6-4387-49c2-8ed4-1ac48cba807e"}: {}
+        f:spec:
+          f:containers:
+            k:{"name":"cv"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:securityContext:
+                .: {}
+                f:privileged: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2021-12-01T19:50:58Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"172.17.0.5"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      subresource: status
+spec:
+  volumes:
+    - name: kube-api-access-v2kn9
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+        defaultMode: 420
+  containers:
+    - name: cv
+      image: krutika12/resumemaker:latest
+      resources: {}
+      volumeMounts:
+        - name: kube-api-access-v2kn9
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      imagePullPolicy: Always
+      securityContext:
+        privileged: false
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 30
+  dnsPolicy: ClusterFirst
+  serviceAccountName: default
+  serviceAccount: default
+  nodeName: minikube
+  securityContext: {}
+  schedulerName: default-scheduler
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+  priority: 0
+  enableServiceLinks: true
+  preemptionPolicy: PreemptLowerPriority
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-12-01T19:50:54Z'
+    - type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2021-12-01T19:50:54Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [cv]'
+    - type: ContainersReady
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2021-12-01T19:50:54Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [cv]'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2021-12-01T19:50:54Z'
+  hostIP: 192.168.39.23
+  podIP: 172.17.0.5
+  podIPs:
+    - ip: 172.17.0.5
+  startTime: '2021-12-01T19:50:54Z'
+  containerStatuses:
+    - name: cv
+      state:
+        waiting:
+          reason: CrashLoopBackOff
+          message: >-
+            back-off 5m0s restarting failed container=cv
+            pod=cv-c77d99c57-kqdpx_default(b1a2d59e-1c4b-4891-ba4d-c492037e0924)
+      lastState:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2021-12-01T20:02:11Z'
+          finishedAt: '2021-12-01T20:02:11Z'
+          containerID: >-
+            docker://069e38174da9fd7134ec349dfde9ceb17c3acd83125f04355badde53af92ed56
+      ready: false
+      restartCount: 7
+      image: krutika12/resumemaker:latest
+      imageID: >-
+        docker-pullable://krutika12/resumemaker@sha256:45520f504d28ad535cfb14167fe66c2f6b339b7e354a87917dddae0d3f10cbef
+      containerID: >-
+        docker://069e38174da9fd7134ec349dfde9ceb17c3acd83125f04355badde53af92ed56
+      started: false
+  qosClass: BestEffort
