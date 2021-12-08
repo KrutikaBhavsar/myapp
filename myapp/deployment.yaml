@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-web-deployment
+  namespace: sample
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: cv-app
+    spec:
+      containers:
+      - name: cv-app-container
+        image: krutika12/resumemaker:latest
+        ports:
+        - containerPort: 8000
+  selector:
+    matchLabels:
+      app: cv-app
