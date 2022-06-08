@@ -7,6 +7,7 @@
 
 ##### WHAT DOES THE APP DO?
 It is a CV MAKER APPLICATION.
+The application is dockerised and containerized using kubernetes.
 It takes basic information from the user and helps the user to make a CV of it.
 http://127.0.0.1:8000/list/ Here you can find the information by user and their CV. 
 As soon as you click on the yellow box, you get to avail the feature of downloading your CV.
