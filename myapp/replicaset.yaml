@@ -112,3 +112,4 @@ status:
   replicas: 1
   fullyLabeledReplicas: 1
   observedGeneration: 1
+
