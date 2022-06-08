@@ -3,7 +3,7 @@
 1) Download the project and all the necessary dependencies files.
 2) Run the program using the following command: 
    python manage.py runserver
-   http://127.0.0.1:8000
+3)You will find it here: http://127.0.0.1:8000
 
 ##### WHAT DOES THE APP DO?
 It is a CV MAKER APPLICATION.
