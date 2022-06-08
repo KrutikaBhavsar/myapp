@@ -13,3 +13,4 @@ class Profile(models.Model):
     about_you = models.TextField(max_length=1000)
     experience = models.TextField(max_length=1000)
 
+    
