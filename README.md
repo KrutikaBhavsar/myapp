@@ -11,4 +11,4 @@ http://127.0.0.1:8000/list/ Here you can find the information by user and their 
 As soon as you click on the yellow box, you get to avail the feature of downloading your CV.
 
 
-####Hope this is useful for you.
+Hope this is useful for you and saves your time to make and format the CV :)
